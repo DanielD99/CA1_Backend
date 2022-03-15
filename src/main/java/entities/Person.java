@@ -1,11 +1,11 @@
 package entities;
-
+/*
 import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import sun.jvm.hotspot.types.CIntegerType;
 
 import javax.persistence.*;
 import java.util.Objects;
-/*
+
 @Entity
 public class Person {
     @Id
