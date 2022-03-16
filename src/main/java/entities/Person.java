@@ -1,82 +1,65 @@
 package entities;
-/*
-import com.mysql.cj.x.protobuf.MysqlxDatatypes;
-import sun.jvm.hotspot.types.CIntegerType;
 
 import javax.persistence.*;
-import java.util.Objects;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@NamedQuery(name = "Person.deleteAllRows", query = "DELETE from Person")
+
 public class Person {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
-    @Basic
-    @Column(name = "name")
-    private String name;
-    @Basic
-    @Column(name = "hobby")
-    private String hobby;
-
-    @ManyToOne
-    @JoinColumn(name = "city_id", referencedColumnName = "id", nullable = false)
-    private City city;
-
+    private int id;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "last_name")
+    private String lastName;
 
     public Person() {
     }
 
-    public Long getId() {
+    public Person(String email, String firstName, String lastName) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Person(String name, String hobby) {
-        this.name = name;
-        this.hobby = hobby;
+    public String getEmail() {
+        return email;
     }
 
-    public String getName() {
-        return name;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getFirstName() {
+        return firstName;
     }
 
-
-    public double getHobby() {
-        return Hobby;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setHobby(String hobby) {
-        this.hobby = hobby;
+    public String getLastName() {
+        return lastName;
     }
 
-
-    public Department getCity() {
-        return City;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public void setCity(City city) {
-        this.city= city;
-    }
-    /*
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return Double.compare(employee.salery, salery) == 0 && name.equals(employee.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, hobby);
-    }
 }
-*/
