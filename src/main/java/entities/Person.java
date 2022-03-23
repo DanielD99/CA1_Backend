@@ -24,6 +24,12 @@ public class Person {
     @JoinColumn(name = "address_id")
     private Address address;
 
+    @ManyToMany
+    private Set<Hobby> hobbies = new HashSet<>();
+
+    @OneToMany(mappedBy = "person")
+    private Set<Phone> phones = new HashSet<>();
+
 
     public Person() {
     }
@@ -77,5 +83,36 @@ public class Person {
         }
     }
 
+    public Set<Phone> getPhones() {
 
+        return phones;
+    }
+    public void addPhone(Phone phone) {
+        this.phones.add(phone);
+        if(phone.getPerson()!=this){
+            phone.addPerson(this);
+        }
+    }
+    public void removePhone(Phone phone) {
+
+        this.phones.remove(phone);
+    }
+
+    public Set<Hobby> getHobbies() {
+
+        return hobbies;
+    }
+    public void addHobby(Hobby hobby) {
+        this.hobbies.add(hobby);
+        if(!hobby.getPersons().contains(this)){
+            hobby.addPerson(this);
+        }
+    }
+
+    public void removeHobby(Hobby hobby) {
+        this.hobbies.remove(hobby);
+        if(!hobby.getPersons().contains(this)){
+            hobby.getPersons().remove(this);
+        }
+    }
 }

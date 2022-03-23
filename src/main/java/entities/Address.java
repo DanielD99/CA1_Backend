@@ -61,7 +61,8 @@ public class Address {
     }
 
     public Set<Person> getPersons() {
-        return this.persons;
+
+            return this.persons;
     }
 
     public void addPerson(Person person) {
@@ -69,6 +70,11 @@ public class Address {
         if(person.getAddress() != this){
             person.addAddress(this);
         }
+    }
+
+    public void removePerson(Person person) {
+
+            this.persons.remove(person);
     }
 
     public CityDetails getCityDetails() {
@@ -80,5 +86,16 @@ public class Address {
             cityDetails.addAddress(this);
         }
     }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", street='" + street + '\'' +
+                ", misc='" + misc + '\'' +
+                ",citydetails id: " + cityDetails.getId() +
+                '}';
+    }
+
 
 }

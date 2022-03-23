@@ -17,6 +17,10 @@ public class Phone {
     @Column(name = "description")
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name="person_id")
+    private Person person;
+
     public Phone() {
     }
 
@@ -26,27 +30,43 @@ public class Phone {
     }
 
     public void setId(int id) {
+
         this.id = id;
     }
 
     public int getId() {
+
         return id;
     }
 
     public String getNumber() {
+
         return number;
     }
 
     public void setNumber(String number) {
+
         this.number = number;
     }
 
     public String getDescription() {
+
         return description;
     }
 
     public void setDescription(String description) {
+
         this.description = description;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+    public void addPerson(Person person) {
+        this.person = person;
+        if(!person.getPhones().contains(this)){
+            person.addPhone(this);
+        }
     }
 
 }
