@@ -1,7 +1,6 @@
 package entities;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,6 +16,18 @@ public class Address {
     private String street;
     @Column(name = "misc")
     private String misc;
+
+
+    @ManyToOne
+    @JoinColumn(name = "city_details_id")
+    private CityDetails cityDetails;
+
+
+
+    @OneToMany(mappedBy = "address")
+    private Set<Person> persons = new HashSet<>();
+
+
         public Address() {
     }
 
@@ -47,6 +58,27 @@ public class Address {
 
     public int getId() {
         return id;
+    }
+
+    public Set<Person> getPersons() {
+        return this.persons;
+    }
+
+    public void addPerson(Person person) {
+        this.persons.add(person);
+        if(person.getAddress() != this){
+            person.addAddress(this);
+        }
+    }
+
+    public CityDetails getCityDetails() {
+        return cityDetails;
+    }
+    public void addCityDetails(CityDetails cityDetails) {
+        this.cityDetails=cityDetails;
+        if(!cityDetails.getAddresses().contains(this)){
+            cityDetails.addAddress(this);
+        }
     }
 
 }

@@ -20,6 +20,11 @@ public class Person {
     @Column(name = "last_name")
     private String lastName;
 
+    @ManyToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+
+
     public Person() {
     }
 
@@ -61,5 +66,16 @@ public class Person {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    public Address getAddress() {
+        return address;
+    }
+    public void addAddress(Address address) {
+        this.address=address;
+        if(!address.getPersons().contains(this)){
+            address.addPerson(this);
+        }
+    }
+
 
 }

@@ -5,8 +5,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@NamedQuery(name = "City.deleteAllRows", query = "DELETE from City")
-public class City {
+@Table (name = "city_details")
+@NamedQuery(name = "CityDetails.deleteAllRows", query = "DELETE from CityDetails")
+public class CityDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -18,10 +19,15 @@ public class City {
     @Column(name = "city")
     private String city;
 
-    public City() {
+
+    @OneToMany (mappedBy = "cityDetails")
+        private Set<Address> addresses = new HashSet<>();
+
+
+    public CityDetails() {
     }
 
-    public City(int zipCode, String city) {
+    public CityDetails(int zipCode, String city) {
         this.zipCode = zipCode;
         this.city = city;
     }
@@ -50,9 +56,20 @@ public class City {
         return id;
     }
 
+    public Set<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void addAddress(Address address) {
+        this.addresses.add(address);
+        if(address.getCityDetails() != this){
+            address.addCityDetails(this);
+        }
+    }
+
         @Override
     public String toString() {
-        return "City{" +
+        return "CityDetails{" +
                 "id=" + id +
                 ", zipCode=" + zipCode +
                 ", city='" + city + '\'' +
