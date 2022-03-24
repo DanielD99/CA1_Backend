@@ -1,3 +1,5 @@
+package dtos;
+
 //package dtos;
 //
 //import entities.RenameMe;
@@ -5,7 +7,7 @@
 //import java.util.ArrayList;
 //import java.util.List;
 //
-//public class PersonDTO {
+public class PersonDTO {
 //    private long id;
 //    private String number;
 //    private PersonDTO personDTO;
@@ -51,4 +53,4 @@
 //    }
 //
 //
-//}
+}
