@@ -1,19 +1,11 @@
-///*
-// * To change this license header, choose License Headers in Project Properties.
-// * To change this template file, choose Tools | Templates
-// * and open the template in the editor.
-// */
 //package dtos;
 //
 //import entities.RenameMe;
+//
 //import java.util.ArrayList;
 //import java.util.List;
 //
-///**
-// *
-// * @author tha
-// */
-//public class RenameMeDTO {
+//public class PersonDTO {
 //    private long id;
 //    private String number;
 //    private PersonDTO personDTO;
@@ -57,10 +49,6 @@
 //    public String toString() {
 //        return "RenameMeDTO{" + "id=" + id + ", str1=" + str1 + ", str2=" + str2 + '}';
 //    }
-//
-//
-//
-//
 //
 //
 //}

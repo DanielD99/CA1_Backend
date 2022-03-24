@@ -6,6 +6,7 @@
 //package dtos;
 //
 //import entities.RenameMe;
+//
 //import java.util.ArrayList;
 //import java.util.List;
 //
@@ -13,24 +14,24 @@
 // *
 // * @author tha
 // */
-//public class RenameMeDTO {
+//public class PhoneDTO {
 //    private long id;
-//    private String number;
-//    private PersonDTO personDTO;
+//    private String PhoneNumber;
+//    private String str2;
 //
-//    public RenameMeDTO(String dummyStr1, String dummyStr2) {
+//    public PhoneDTO(String dummyStr1, String dummyStr2) {
 //        this.str1 = dummyStr1;
 //        this.str2 = dummyStr2;
 //    }
 //
-//    public static List<RenameMeDTO> getDtos(List<RenameMe> rms){
-//        List<RenameMeDTO> rmdtos = new ArrayList();
-//        rms.forEach(rm->rmdtos.add(new RenameMeDTO(rm)));
+//    public static List<PhoneDTO> getDtos(List<RenameMe> rms){
+//        List<PhoneDTO> rmdtos = new ArrayList();
+//        rms.forEach(rm->rmdtos.add(new PhoneDTO(rm)));
 //        return rmdtos;
 //    }
 //
 //
-//    public RenameMeDTO(RenameMe rm) {
+//    public PhoneDTO(RenameMe rm) {
 //        if(rm.getId() != null)
 //            this.id = rm.getId();
 //        this.str1 = rm.getDummyStr1();
