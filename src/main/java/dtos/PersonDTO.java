@@ -1,6 +1,8 @@
 package dtos;
 
 
+import entities.Hobby;
+import entities.Person;
 import entities.Phone;
 
 import java.util.ArrayList;
@@ -13,15 +15,23 @@ public class PersonDTO {
     private String eMail;
     private String firstName;
     private String lastName;
-    private Set<PhoneDTO> phoneDTOSet = new HashSet<>();
-    private Set<HobbyDTO> hobbyDTOSet = new HashSet<>();
+    private Set<PhoneDTO> phones = new HashSet<>();
+    private Set<HobbyDTO> hobbies = new HashSet<>();
+    private AddressDTO address;
 
 
-    public PhoneDTO(Phone phone) {
-        this.id = phone.getId();
-        this.phoneNumber = phone.getNumber();
-        this.description = phone.getDescription();
-        this.personId = phone.getPerson().getId();
+    public PersonDTO(Person person) {
+        this.id = person.getId();
+        this.firstName = person.getFirstName();
+        this.lastName = person.getLastName();
+        this.eMail = person.getEmail();
+        for (Hobby hobby: person.getHobbies()) {
+            this.hobbies.add(new HobbyDTO(hobby));
+        }
+        for (Phone phone: person.getPhones()){
+            this.phones.add(new PhoneDTO(phone));
+        }
+        this.address = new AddressDTO(person.getAddress());
     }
 
 
