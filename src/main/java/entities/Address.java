@@ -14,8 +14,8 @@ public class Address {
     private int id;
     @Column(name = "street")
     private String street;
-    @Column(name = "misc")
-    private String misc;
+    @Column(name = "additional_info")
+    private String additionalInfo;
 
 
     @ManyToOne
@@ -31,9 +31,9 @@ public class Address {
         public Address() {
     }
 
-    public Address(String street, String misc) {
+    public Address(String street, String additionalInfo) {
         this.street = street;
-        this.misc = misc;
+        this.additionalInfo = additionalInfo;
     }
 
     public String getStreet() {
@@ -44,12 +44,12 @@ public class Address {
         this.street = street;
     }
 
-    public String getMisc() {
-        return misc;
+    public String getadditionalinfo() {
+        return additionalInfo;
     }
 
-    public void setMisc(String misc) {
-        this.misc = misc;
+    public void setadditionalinfo(String misc) {
+        this.additionalInfo = additionalInfo;
     }
 
     public void setId(int id) {
@@ -92,7 +92,7 @@ public class Address {
         return "Address{" +
                 "id=" + id +
                 ", street='" + street + '\'' +
-                ", misc='" + misc + '\'' +
+                ", additionalInfo='" + additionalInfo + '\'' +
                 ",cityinfo id: " + cityInfo.getId() +
                 '}';
     }
