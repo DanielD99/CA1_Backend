@@ -23,4 +23,28 @@ public class CityInfoDTO {
         cityInfoList.forEach(cityInfo -> cityInfoDTOs.add(new CityInfoDTO(cityInfo)));
         return cityInfoDTOs;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getZip() {
+        return zip;
+    }
+
+    public void setZip(int zip) {
+        this.zip = zip;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 }
