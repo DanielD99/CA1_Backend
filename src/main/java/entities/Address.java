@@ -19,8 +19,8 @@ public class Address {
 
 
     @ManyToOne
-    @JoinColumn(name = "city_details_id")
-    private CityDetails cityDetails;
+    @JoinColumn(name = "city_info_id")
+    private CityInfo cityInfo;
 
 
 
@@ -77,13 +77,13 @@ public class Address {
             this.persons.remove(person);
     }
 
-    public CityDetails getCityDetails() {
-        return cityDetails;
+    public CityInfo getCityInfo() {
+        return cityInfo;
     }
-    public void addCityDetails(CityDetails cityDetails) {
-        this.cityDetails=cityDetails;
-        if(!cityDetails.getAddresses().contains(this)){
-            cityDetails.addAddress(this);
+    public void addCityInfo (CityInfo cityInfo) {
+        this.cityInfo = cityInfo;
+        if(!cityInfo.getAddresses().contains(this)){
+            cityInfo.addAddress(this);
         }
     }
 
@@ -93,7 +93,7 @@ public class Address {
                 "id=" + id +
                 ", street='" + street + '\'' +
                 ", misc='" + misc + '\'' +
-                ",citydetails id: " + cityDetails.getId() +
+                ",cityinfo id: " + cityInfo.getId() +
                 '}';
     }
 
